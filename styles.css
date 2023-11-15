@@ -64,15 +64,33 @@ table {
 body {
     margin: 0 auto;
     width: 320px;
+    line-height: 1.2;
 }
 
 
-/* TYPOGRAPHY */
+/* ---------------- General TYPOGRAPHY/TEXT---------------- */
 h1, h2, h3 {
     /* Mole Font  */
     font-family: "Molle", serif;
     padding-top: 15px;
     padding-bottom: 15px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2{
+    font-size: 1.8rem;
+}
+
+h3{
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-weight: bold;
+    text-transform:uppercase;
 }
 
 h4, p, q, small, nav, button, form{
@@ -81,9 +99,16 @@ h4, p, q, small, nav, button, form{
 }
 
 p {
-    padding-bottom: 15px;
+    font-size: 1rem;
 }
 
+label {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+/* ----------------------- NAV / HEADER / SKIP LINKS -------------- */
 
 /* Skip link style taken from https://webaim.org/techniques/css/invisiblecontent/  */
 #skip{ 
@@ -102,7 +127,7 @@ p {
     width:1px;
     height:1px;
     overflow:hidden;
-    }
+}
 
 header {
     background: linear-gradient(180deg, var(--teal) 0%, var(--white) 100%);
@@ -118,6 +143,8 @@ header {
     grid-column: 1/2;
 
 }
+
+/* Header and Nav */
 
 header nav {
     grid-row: 1/2;
@@ -139,6 +166,7 @@ img {
     height: auto;
 }
 
+/* ------------------------- MAIN ------------------- */
 
 #main-content{
     display: grid;
@@ -147,11 +175,92 @@ img {
     padding-right: 20px;
 }
 
+/* --------------------- Intro -------------- */
+
+#intro p {
+    margin-bottom: 20px;
+}
+
+/* -------------- Plan -------------- */
 #plan{
     background-color: var(--yellow);
     text-align: center;
+    padding: 25px;
 }
 
+#plan div{
+    display: grid;
+    row-gap: 20px;
+    margin-bottom: 20px;
+}
+
+#plan div section{
+    border-radius: 5%;
+    border-style: solid;
+    border-color: var(--white);
+    border-width: 3px;
+    background-color: var(--teal);
+    padding: 20px;
+}
+
+/* ---------------- Testimonials ------------- */
+
+#testimonials{
+    padding: 25px;
+    text-align: center;
+}
+
+#testimonials div {
+    display: grid;
+    row-gap: 15px;
+}
+
+/* --------------- About --------------- */
+
+#about{
+    background-color: var(--blue);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+#about img {
+    width: 100px;
+    height: 100px;
+}
+
+#about div{
+    padding-left: ;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+#about div section {
+    text-align: center;
+}
+
+/* --------------------- Contact ------------------ */
+
+#contact {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.form-required{
+    font-family: 'Montserrat', serif;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+#names{
+    display: block;
+    width: 100%
+}
+
+input, label, fieldset{
+    
+}
 
 
 
