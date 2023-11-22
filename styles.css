@@ -63,7 +63,7 @@ table {
 
 body {
     margin: 0 auto;
-    width: 320px;
+    max-width: 320px;
     line-height: 1.2;
 }
 
@@ -93,18 +93,28 @@ h4 {
     text-transform:uppercase;
 }
 
-h4, p, q, small, nav, button, form{
+h4, p, q, small, nav, button, form, a{
     /* Montserrat font */
     font-family: 'Montserrat', serif;
+    color: var(--black);
 }
 
 p {
     font-size: 1rem;
 }
 
-label {
+label, fieldset {
     font-weight: bold;
     text-transform: uppercase;
+}
+
+fieldset label {
+    font-weight: normal;
+    text-transform: none;
+}
+
+a {
+    text-decoration: none;
 }
 
 
@@ -129,6 +139,7 @@ label {
     overflow:hidden;
 }
 
+/* Header and Nav */
 header {
     background: linear-gradient(180deg, var(--teal) 0%, var(--white) 100%);
     display: grid;
@@ -143,8 +154,6 @@ header {
     grid-column: 1/2;
 
 }
-
-/* Header and Nav */
 
 header nav {
     grid-row: 1/2;
@@ -161,9 +170,65 @@ header p {
     grid-column: 1/3;
 }
 
-img {
+img{
     width: 100%;
     height: auto;
+}
+
+/* Menu Toggle */
+#menu-toggle{
+    display:block;
+    position: relative;
+    z-index:1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#menu-toggle a:hover{
+    color: var(--darkGray);
+}
+
+#menu-toggle input{
+    display:block;
+    width: 30px;
+    height: 30px;
+    opacity: 100; /*to hide*/
+    z-index:2;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    -webkit-touch-callout: none;
+}
+
+#menu-toggle label {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+  #menu-toggle label span {
+    display: none;
+}
+
+#menu-toggle ul {
+    position: absolute;
+    width: 320px;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    background: var(--teal);
+    list-style-type: none;
+    left: 1000px;
+    -webkit-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+    transition: left 0.3s ease;
+}
+
+#menu-toggle input:checked ~ ul {
+    left: 0;
 }
 
 /* ------------------------- MAIN ------------------- */
@@ -171,8 +236,6 @@ img {
 #main-content{
     display: grid;
     grid-template-columns: 1fr;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 /* --------------------- Intro -------------- */
@@ -181,17 +244,23 @@ img {
     margin-bottom: 20px;
 }
 
+#img-grid img{
+    max-width: 320px;
+    height: auto;
+}
+
 /* -------------- Plan -------------- */
 #plan{
     background-color: var(--yellow);
     text-align: center;
-    padding: 25px;
+    width: 320px;
 }
 
 #plan div{
     display: grid;
     row-gap: 20px;
     margin-bottom: 20px;
+    width:320px;
 }
 
 #plan div section{
@@ -200,40 +269,57 @@ img {
     border-color: var(--white);
     border-width: 3px;
     background-color: var(--teal);
-    padding: 20px;
+    width: 80%;
 }
+
+
+#plan div section a img {
+    width:40%;
+    height: auto;
+}
+
+
 
 /* ---------------- Testimonials ------------- */
 
 #testimonials{
-    padding: 25px;
     text-align: center;
+    width: 320px;
 }
 
 #testimonials div {
     display: grid;
     row-gap: 15px;
+
+}
+
+#testimonials div section {
+    width: 320px;
+}
+
+#testimonials div section img {
+    width: 60%;
+    height: auto;
 }
 
 /* --------------- About --------------- */
 
 #about{
     background-color: var(--blue);
-    padding-left: 20px;
-    padding-right: 20px;
     padding-bottom: 20px;
+    width: 320px;
 }
 
 #about img {
-    width: 100px;
-    height: 100px;
+    width: 50%;
+    height: auto;
 }
 
 #about div{
-    padding-left: ;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+    padding-left
 }
 
 #about div section {
@@ -242,19 +328,60 @@ img {
 
 /* --------------------- Contact ------------------ */
 
-#contact {
-    padding-left: 20px;
-    padding-right: 20px;
-}
 
 form {
-    display: flex;
+    width: 320px;
 }
 
 .form-required{
     font-family: 'Montserrat', serif;
     font-size: 1rem;
     font-style: italic;
+}
+
+.required{
+    color: var(--purple);
+}
+
+input[type=text], input[type=email], input[type=tel], select{
+    margin-left: 10px;
+    margin-bottom: 12px;
+    width: 90%;
+    padding: 8px;
+    border: 2px solid var(--purple);
+    color: var(--black);
+    
+}
+select {
+    width: 96%;
+}
+
+input[type=placeholder]{
+    color: var(--black);
+}
+  /* select CSS ------------ */
+
+  /* submit button CSS */
+
+  input[type=submit]{
+    margin-left: 10px;
+    margin-bottom: 12px;
+    width: 96%;
+    padding: 8px;
+    color: var(--white);
+    background-color: var(--purple);
+    border: none;
+    text-transform: uppercase;
+  }
+
+
+footer{
+    display: grid;
+    background-color: var(--lightGray);
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    text-align: center;
+    row-gap: 12px;
 }
 
 
